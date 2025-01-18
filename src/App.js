@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Dashboard from "./components/Dashboard";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
+  const location = useLocation(); // Get the current route
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* Render Header only if not on the /dashboard route */}
+      {location.pathname !== "/dashboard" && <Header />}
+
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </>
   );
 }
 
-export default App;
+const AppWrapper = () => (
+  <Router>
+    <App />
+    <Home />
+    <About/>
+    <Contact/>
+    <Footer />
+  </Router>
+);
+
+export default AppWrapper;
