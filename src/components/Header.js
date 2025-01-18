@@ -56,7 +56,7 @@ function Header() {
           <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 items-center text-black font-bold">
             <li>
               <a href="#hero" className="hover:text-yellow-300">
-                Home
+                HomeHome
               </a>
             </li>
             <li>
