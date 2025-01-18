@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   const location = useLocation(); // Get the current route
